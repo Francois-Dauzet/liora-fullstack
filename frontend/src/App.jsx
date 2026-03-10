@@ -86,6 +86,21 @@ function App() {
       <header className="header">
         <h1>Task Master</h1>
         <p>Your elegant daily progress tracker</p>
+        <button
+          onClick={() => {
+            throw new Error("Test Sentry Error from React");
+          }}
+          className="btn btn-delete"
+          style={{
+            marginTop: "1rem",
+            color: "var(--danger-color)",
+            borderColor: "var(--danger-color)",
+            borderStyle: "solid",
+            borderWidth: "1px",
+          }}
+        >
+          Vérifier Sentry (Générer Erreur)
+        </button>
       </header>
 
       <form className="task-form" onSubmit={handleCreateTask}>
