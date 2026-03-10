@@ -4,7 +4,7 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = [host.strip() for host in os.environ.get('ALLOWED_HOSTS', '*').split(',') if host.strip()]
+ALLOWED_HOSTS = [host.strip().replace('https://', '').replace('http://', '').rstrip('/') for host in os.environ.get('ALLOWED_HOSTS', '*').split(',') if host.strip()]
 
 DATABASES = {
     'default': dj_database_url.config(
