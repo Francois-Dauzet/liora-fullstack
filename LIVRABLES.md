@@ -3,7 +3,7 @@
 ## Liens de l'application
 
 - **Site Final (Frontend) :** https://liora-fullstack.vercel.app/
-- **API (Backend) :** http://localhost:8000/ (Développement local - Hébergement Cloud requiert CB)
+- **API (Backend) :** https://liora-fullstack.onrender.com/
 - **Code source (GitHub) :** https://github.com/Francois-Dauzet/liora-fullstack
 
 ## 1. Preuves de la partie 1 et 2 (Déploiement)
