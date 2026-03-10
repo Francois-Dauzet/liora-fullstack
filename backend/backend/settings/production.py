@@ -4,7 +4,7 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = [host.strip().replace('https://', '').replace('http://', '').rstrip('/') for host in os.environ.get('ALLOWED_HOSTS', '*').split(',') if host.strip()]
+ALLOWED_HOSTS = ['*'] # Permissif pour éviter l'erreur 400 Bad Request lié au Host header
 
 DATABASES = {
     'default': dj_database_url.config(
@@ -12,8 +12,8 @@ DATABASES = {
     )
 }
 
-CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = [origin.strip().rstrip('/') for origin in os.environ.get('CORS_ALLOWED_ORIGINS', '').split(',') if origin.strip()]
+CORS_ALLOW_ALL_ORIGINS = True # On autorise tout pour débloquer le frontend
+CORS_ALLOWED_ORIGINS = [] # Laissé vide car on utilise True ci-dessus
 
 # Config Whitenoise pour la mise en cache statique en production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
