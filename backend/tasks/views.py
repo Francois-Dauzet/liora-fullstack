@@ -16,8 +16,6 @@ class TaskListCreateAPIView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         """Associe automatiquement la nouvelle tâche à l'utilisateur authentifié."""
         user = self.request.user if self.request.user.is_authenticated else None
-        # On assigne à un None ou au user s'il est logué (mais foreign key owner requiert un user, donc il faut gérer)
-        # Mais owner est required. Mockons le user pour ce test.
         from django.contrib.auth.models import User
         user, created = User.objects.get_or_create(username='testuser')
         serializer.save(owner=user)
